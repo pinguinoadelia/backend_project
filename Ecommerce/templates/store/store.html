@@ -3,15 +3,26 @@
 {% block content %}
 
     <div class="row">
+
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand">Filters</a>
+
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"><button data-filter="Music" class="btn my-btn">Music</button></li>
-                    <li class="nav-item active"><button data-filter="Digital" class="btn my-btn">Digital</button></li>
-                    <li class="nav-item active"><button data-filter="Abbigliamento" class="btn my-btn">Abbigliamento</button></li>
-                    <li class="nav-item active"><button data-filter="Other" class="btn my-btn">Other</button></li>
+                    <li class="nav-item active">
+                        <button data-filter="Music" class="btn my-btn">Music</button>
+                    </li>
+                    <li class="nav-item active">
+                        <button data-filter="Digital" class="btn my-btn">Digital</button>
+                    </li>
+                    <li class="nav-item active">
+                        <button data-filter="Abbigliamento" class="btn my-btn">Abbigliamento</button>
+                    </li>
+                     <li class="nav-item active">
+                        <button data-filter="Other" class="btn my-btn">Other</button>
+                    </li>
                 </ul>
                 <div class="form-inline my-2 my-lg-0">
                     <button data-filter="all" class="btn btn-warning">Remove filters</button>
@@ -19,39 +30,54 @@
             </div>
         </nav>
     </div>
-    <div class="row mt-3">
-        {% for product in products %}
-            <div class="col-lg-4 col-md-6 mb-4" data-category={{ product.category }}>
-                <img class="thumbnail img-fluid" src="{{ product.imageUrl }}"/>
-                <div class="box-element product">
-                    <h6><strong> {{ product.name }}</strong></h6>
-                    <p class="cat-display"> #{{ product.category }}</p>
-                    <hr>
-                    <button data-product={{ product.id }} data-action="add" class="btn btn-outline-success add-btn update-cart">Add to Cart</button>
-                    <h4 style="display: inline-block; float: right"><strong>$ {{ product.price|floatformat:2 }}</strong></h4>
+
+        <div class="row mt-3">
+            <!-- 3 PRODOTTI, PRIMA FILA -->
+            {% for product in products %}
+                <div class="col-lg-4 col-md-6 mb-4" data-category={{ product.category }}>
+                    <img class="thumbnail img-fluid" src="{{ product.imageUrl }}"/>
+                    <div class="box-element product">
+                        <h6><strong> {{ product.name }}</strong></h6>
+                        <p class="cat-display"> #{{ product.category }}</p>
+                        <hr>
+
+                        <button data-product={{ product.id }} data-action="add" class="btn btn-outline-success add-btn update-cart">Add to Cart</button>
+                        <h4 style="display: inline-block; float: right"><strong>$ {{ product.price|floatformat:2 }}</strong></h4>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+
+            {% endfor %}
+        </div>
+
+
+
     </div>
-    </div>
+
+
     <script type="text/javascript">
         var items = document.querySelectorAll('[data-category]')
         const buttons = document.querySelectorAll('button[data-filter]')
+
         buttons.forEach(button => {
             button.addEventListener('click', () => {
                 const filter = button.getAttribute('data-filter');
+
                 items.forEach(item => {
                     const itemCategory = item.getAttribute('data-category');
+
                     if (filter == 'all' || itemCategory == filter) {
                         item.classList.remove('d-none');
                     } else {
                         item.classList.add('d-none');
                     }
                 });
-                
+
+                // Update button styles to reflect active filter
                 buttons.forEach(btn => btn.classList.remove('btn-primary'));
                 button.classList.add('btn-primary');
             });
         });
+
     </script>
+
 {% endblock content %}
