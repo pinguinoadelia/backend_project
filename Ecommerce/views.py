@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect 
 from django.http import JsonResponse
 
 import datetime
 import json
 
+from django.views.generic import ListView
 from .models import *
 from .utils import cartData, guestOrder
 from .forms import ProductForm
@@ -15,6 +16,16 @@ from .forms import RegisterForm
 
 # Create your views here.
 
+class StoreView(ListView):
+    model = Product
+    template_name = 'store/store.html'
+    context_object_name = 'products'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        data = cartData(self.request)
+        ctx['cartItems'] = data['cartItems']
+        return ctx
 
 def store(request):
     data = cartData(request)

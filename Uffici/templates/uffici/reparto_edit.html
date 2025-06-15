@@ -1,0 +1,11 @@
+{% extends "store/main.html" %}
+{% block content %}
+<h1>Assegna Managers a {{ reparto }}</h1>
+
+<form method="post">{% csrf_token %}
+  {{ form.managers }}
+  <button class="btn btn-primary">Salva</button>
+</form>
+
+<a href="{% url 'reparti_list' %}">← Torna ai reparti</a>
+{% endblock %}

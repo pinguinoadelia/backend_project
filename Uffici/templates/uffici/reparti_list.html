@@ -1,0 +1,12 @@
+{% extends "store/main.html" %}
+{% block content %}
+<h1>Reparti</h1>
+<ul>
+  {% for rep in reparti %}
+    <li>
+      {{ rep }} —
+      <a href="{% url 'reparto_edit' rep.pk %}">Assegna managers</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}
