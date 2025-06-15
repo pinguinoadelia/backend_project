@@ -2,7 +2,7 @@
 Un Progetto Django per PPM - UniFi  
 Sito E-Commerce
 
-### Non registrato - homepage
+### Non registrato/registrato - homepage
 Quando apri il sito per la prima volta, è già possibile visualizzare tutti gli articoli. Da qui puoi:
 
 - filtrare gli articoli per categoria e eventualmente rimuovere i filtri
@@ -11,11 +11,10 @@ Quando apri il sito per la prima volta, è già possibile visualizzare tutti gli
 - combinare le due opzioni precedenti
 - da qualsiasi di queste visualizzazioni è possibile aggiungere articoli al carrello
 - controllare il numero aggiornato di articoli nel carrello
-- effettuare il login (vedi sotto)
+- effettuare il login/logout
 - aggiungere un articolo da vendere
 
-### Registrato - homepage
-Una volta effettuato il login, puoi:
+
 
 ### Vista carrello
 Puoi accedere a questa vista cliccando l’icona del carrello in alto a destra. Da qui puoi:
