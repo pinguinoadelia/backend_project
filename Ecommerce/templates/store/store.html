@@ -35,7 +35,7 @@
             <!-- 3 PRODOTTI, PRIMA FILA -->
             {% for product in products %}
                 <div class="col-lg-4 col-md-6 mb-4" data-category={{ product.category }}>
-                    <img class="thumbnail img-fluid" src="{{% static product.imageUrl %}}"/>
+                    <img class="thumbnail img-fluid" src="{{ product.imageUrl }}"/>
                     <div class="box-element product">
                         <h6><strong> {{ product.name }}</strong></h6>
                         <p class="cat-display"> #{{ product.category }}</p>
