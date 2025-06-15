@@ -168,3 +168,27 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return redirect('/')
+
+def registerPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        phone = request.POST.get('phone')
+        birth_date = request.POST.get('birth_date')
+
+        user = Profile.objects.create_user(
+            username=username,
+            password=password,
+            email=email,
+            first_name=first_name,
+            last_name=last_name
+        )
+        user.phone = phone
+        user.birth_date = birth_date
+        user.save()
+
+        return redirect('login')  
+    return render(request, 'store/register.html')

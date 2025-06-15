@@ -1,0 +1,11 @@
+{# Ecommerce/templates/store/product_list.html #}
+{% extends "store/main.html" %}
+
+{% block content %}
+  <h1>Prodotti disponibili</h1>
+  <ul>
+    {% for p in products %}
+      <li>{{ p.name }} – €{{ p.price }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
