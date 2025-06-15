@@ -42,3 +42,5 @@ viene gestista da uno o più Manager.
 ###App Uffici
 Oltre all'app di Ecommerce è stata implementata anche un app di gestione degli uffici dove sono presenti due gruppi ovvero "L'Office Manager" dove ci sono tutti gli utenti incaricati di gestire un
 reparto specifico e "L'Office Chiefs" Sono utenti “senior” o capi-ufficio con più poteri, di solito superiori ai Manager.
+
+In allegato viene riportato il link del sito sulla piattaforma Vercel https://backend-project-mu-pearl.vercel.app/
