@@ -40,7 +40,7 @@
             {% if item.product %}
             <div class="cart-row">
                 <div style="flex:2">
-                    <img class="row-image" src="{{item.product.imageUrl}}">
+                    <img class="row-image" src="{{ % static item.product.imageUrl %}}">
                 </div>
                 <div style="flex:2">
                     <strong>{{ item.product.name }}</strong>
